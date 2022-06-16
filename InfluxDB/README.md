@@ -6,6 +6,7 @@
 
 ## How to execute script
 ```
+npm i
 npm run dev
 ```
 
