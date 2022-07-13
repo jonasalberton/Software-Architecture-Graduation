@@ -7,7 +7,7 @@ function connect(){
   function createQueue(channel, queue){
     return new Promise((resolve, reject) => {
       try{
-        channel.assertQueue(queue, { durable: true });
+        channel.assertQueue(queue, { durable: false });
         resolve(channel);
       }
       catch(err){ reject(err) }

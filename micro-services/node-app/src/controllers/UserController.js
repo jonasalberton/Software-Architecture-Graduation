@@ -8,7 +8,7 @@ const createUser = async (req, res, next) => {
   const userDTO = {
 	id: parseInt(user.id),
 	name: user.name,
-	initialbalance: user.initialBalance
+	initialBalance: user.initialBalance
   }
   queue.sendToQueue("add-user", userDTO);
   res.json(userDTO);
