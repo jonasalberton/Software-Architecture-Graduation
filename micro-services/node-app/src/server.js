@@ -1,15 +1,22 @@
-const express = require('express');
+const express = require("express");
+const mongoose = require("mongoose");
 
-const { userRouter } = require('./routes/user-router');
-const { accountRouter } = require('./routes/account-router');
+const { userRouter } = require("./routes/user-router");
+const { transactionRouter } = require("./routes/transaction-router");
 
 // Constants
 const PORT = 3000;
+const DB = 'mongodb://root:example@localhost:27017/?authMechanism=DEFAULT';
 
 const server = express();
 
-server.use('/api/users', userRouter);
-server.use('/api/account', accountRouter);
+server.use(express.json());
+server.use("/api/user", userRouter);
+server.use("/api/transaction", transactionRouter);
 
+async function main() {
+  await mongoose.connect(DB);
+  server.listen(PORT, () => console.log("Server running!"));
+}
 
-server.listen(PORT, () => console.log('Server running!'));
+main().catch((err) => console.log(err));
