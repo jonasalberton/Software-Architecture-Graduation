@@ -1,6 +1,6 @@
 //queue.js
 function connect(){
-    return require('amqplib').connect("amqp://localhost")
+    return require('amqplib').connect("amqp://192.168.16.100")
                              .then(conn => conn.createChannel());
   }
   

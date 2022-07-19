@@ -8,7 +8,6 @@ const createTransaction = async (req, res, next) => {
     });
 
 	const transactionDTO = {
-		id: parseInt(transaction.id),
 		type: transaction.type,
 		value: transaction.value,
 		userId: transaction.userId,
