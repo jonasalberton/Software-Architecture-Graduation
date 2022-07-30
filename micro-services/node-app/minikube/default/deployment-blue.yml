@@ -6,7 +6,7 @@ metadata:
   labels:
     version: blue
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: node-app
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: matheusmatias/node-project:0.0.1
+          image: matheusmatias/node-project:0.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
