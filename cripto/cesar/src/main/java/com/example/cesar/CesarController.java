@@ -11,14 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class CesarController {
 
     @PostMapping("encrypt")
-    public String encrypt(@RequestBody() Body body) {
+    public Body encrypt(@RequestBody() Body body) {
         Cesar cesar = new Cesar();
-        return Cesar.encrypt(body.message);
+        Body response = new Body();
+        response.message = Cesar.encrypt(body.message);
+        return response;
     }
 
     @PostMapping("decrypt")
-    public String decrypt(@RequestBody() Body body) {
+    public Body decrypt(@RequestBody() Body body) {
         Cesar cesar = new Cesar();
-        return Cesar.decrypt(body.message);
+        Body response = new Body();
+        response.message = Cesar.decrypt(body.message);
+        return response;
     }
 }
